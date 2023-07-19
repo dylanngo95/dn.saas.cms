@@ -1,0 +1,15 @@
+
+CREATE TABLE users (
+	id INT NOT NULL AUTO_INCREMENT,
+	username VARCHAR(255) NOT NULL,
+	password VARCHAR(300) NOT NULL,
+	PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE employees (
+  id bigint(20) NOT NULL AUTO_INCREMENT,
+  name varchar(100) NOT NULL,
+  role varchar(50) NOT NULL,
+  project varchar(50) DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
