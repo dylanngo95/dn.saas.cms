@@ -1,5 +1,7 @@
-package dn.sass.cms.user;
+package dn.sass.cms.user.controller;
 
+import dn.sass.cms.user.model.UserService;
+import dn.sass.cms.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +21,7 @@ public class UserController {
         return userService.getAll();
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("/users/{userId}")
     public Optional<User> getUserById(@PathVariable int userId) {
         return userService.getByUserId(userId);
     }

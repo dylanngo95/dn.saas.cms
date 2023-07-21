@@ -1,5 +1,7 @@
-package dn.sass.cms.user;
+package dn.sass.cms.user.model;
 
+import dn.sass.cms.user.model.User;
+import dn.sass.cms.user.model.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
