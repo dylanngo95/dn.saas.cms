@@ -1,7 +1,12 @@
-package dn.sass.cms.user.model;
+package dn.sass.cms.user.service;
 
+import dn.sass.cms.user.dto.UserDto;
+import dn.sass.cms.user.model.Role;
+import dn.sass.cms.user.model.User;
+import dn.sass.cms.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +19,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public List<User> getAll() {
         return userRepository.findAll();
@@ -37,5 +45,23 @@ public class UserService {
 
     public Optional<User> getByUserId(int id) {
         return userRepository.findById(id);
+    }
+
+    /**
+     * Save User
+     * @param userDto UserDto
+     */
+    public void saveUser(UserDto userDto) {
+
+        User user = new User(
+                userDto.getUsername(),
+                userDto.getEmail(),
+                passwordEncoder.encode(userDto.getPassword())
+        );
+        userRepository.save(user);
+    }
+
+    public User getUserByEmail(String email) {
+        return userRepository.getUserByEmail(email);
     }
 }

@@ -19,28 +19,32 @@
         method="post"
         role="form"
         th:action="@{/register/save}"
-        th:object="$user"
+        th:object="${user}"
         >
+            <div th:if="${param.success}">
+                <div class="alert alert-info">
+                    Registration successful !!!
+                </div>
+            </div>
             <div class="mb-3">
                 <label for="username" class="form-label">User Name</label>
-                <input th:field="*{name}" type="text" class="form-control" id="username" aria-describedby="userNameHelp">
-                <div id="usernameHelp" class="form-text">We'll never share your username with anyone else.</div>
+                <input th:field="*{username}" type="text" class="form-control" id="username" aria-describedby="userNameHelp">
+                <p class="text-danger" th:errors="*{username}" th:if="${#fields.hasErrors('username')}"></p>
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <label for="email" class="form-label">Email address</label>
+                <input th:field="*{email}" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <p class="text-danger" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></p>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <label for="password" class="form-label">Password</label>
+                <input th:field="*{password}" type="password" class="form-control" id="password">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <div class="mb-3">
+            Login click to <a class="link-primary" th:href="@{/login}">here</a>
+        </div>
     </div>
 </div>
 </body>

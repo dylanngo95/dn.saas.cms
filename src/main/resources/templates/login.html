@@ -12,25 +12,34 @@
   <div class="row justify-content-md-center">
     <div class="col-8 login-form">
       <h1>Please Log In</h1>
-      <div class="alert alert-info" th:if="${param.error}">
-        Invalid username and password.</div>
-      <div class="alert alert-info" th:if="${param.logout}">
-        You have been logged out.</div>
-      <form th:action="@{/login}" method="post">
-        <div class="row">
-          <div class="mb-3">
-            <label for="username" class="form-label">User Name</label>
-            <input class="form-control" type="text" id="username" name="username" placeholder="Username"/>
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input class="form-control" type="password" id="password" name="password" placeholder="Password"/>
-          </div>
-          <div class="mb-3">
-            <input class="btn btn-primary" type="submit" value="Log in" />
-          </div>
-        </div>
+      <div th:if="${param.error}">
+        <div class="alert alert-danger">Invalid Email or Password !!!</div>
+      </div>
+      <div th:if="${param.logout}">
+        <div class="alert alert-success">You have been logged out !!!</div>
+      </div>
+      <form
+              method="post"
+              role="form"
+              th:action="@{/login}"
+              >
+            <div class="row">
+              <div class="mb-3">
+                <label for="username" class="form-label">Email</label>
+                <input class="form-control" type="email" id="username" name="username" placeholder="Email Address"/>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input class="form-control" type="password" id="password" name="password" placeholder="Password"/>
+              </div>
+              <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Log in" />
+              </div>
+            </div>
       </form>
+      <div class="mb-3">
+        Register click to <a class="link-primary" th:href="@{/register}">here</a>
+      </div>
     </div>
   </div>
 </div>

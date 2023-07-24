@@ -2,12 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
-    <title>Hello World!</title>
+    <title>Customer!</title>
 </head>
 <body>
-<h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-6 mx-auto">
+            <h1>User Details</h1>
+            <div class="mt-2">Hi: <span th:text="${user.username}"/></div>
+            <div class="mt-5"><a class="link-primary" th:href="@{/logout}">Logout</a></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

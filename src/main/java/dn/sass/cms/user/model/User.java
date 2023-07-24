@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -14,14 +15,14 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
-    private String name;
+    private String username;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -37,13 +38,13 @@ public class User {
     )
     private List<Role> roles;
 
-    public User(String name, String email) {
-        this.name = name;
+    public User(String username, String email) {
+        this.username = username;
         this.email = email;
     }
 
-    public User(String name, String email, String password) {
-        this.name = name;
+    public User(String username, String email, String password) {
+        this.username = username;
         this.email = email;
         this.password = password;
     }

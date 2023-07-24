@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Setter
@@ -14,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(schema = "roles")
-public class Role {
+public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +26,8 @@ public class Role {
 
     @ManyToMany(mappedBy = "roles")
     private List<User> userList;
+
+    public Role(String name) {
+        this.name = name;
+    }
 }
