@@ -28,6 +28,11 @@ dependencies {
 	implementation 'org.springframework.session:spring-session-core'
 	implementation 'org.springframework.session:spring-session-jdbc'
 
+	implementation 'com.google.code.gson:gson:2.8.9'
+	implementation 'org.jobrunr:jobrunr:6.2.3'
+	implementation 'org.jobrunr:jobrunr-spring-boot-3-starter:6.2.3'
+
+
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

@@ -1,7 +1,9 @@
 package dn.sass.cms.user.controller;
 
+import dn.sass.cms.user.job.ImportUser;
 import dn.sass.cms.user.service.UserService;
 import dn.sass.cms.user.model.User;
+import org.jobrunr.scheduling.BackgroundJob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,9 @@ import java.util.Optional;
 
 @RestController
 public class UserController {
+
+    @Autowired
+    private ImportUser importJob;
 
     @Autowired
     private UserService userService;
@@ -29,5 +34,11 @@ public class UserController {
     @GetMapping("/users/random")
     public User randomUser() {
         return userService.saveRandom();
+    }
+
+    @GetMapping("/users/job")
+    public String runJob() {
+        BackgroundJob.enqueue(() -> importJob.count());
+        return "a job is running";
     }
 }
