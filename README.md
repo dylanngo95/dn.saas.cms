@@ -1,5 +1,6 @@
 Spring Boot 3 Security project demo
 
+## Make sure your local workstation installed JDK 17 or GraaLVM, Gradle
 
 ```bash
 
