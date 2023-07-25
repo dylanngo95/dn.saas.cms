@@ -9,6 +9,8 @@ cd dn.saas.cms
 
 ./grandlew bootRun
 
-Go to the link: http://localhost:8080
+Register: http://localhost:8080/resgiter
+
+Customer: http://localhost:8080/customer
 
 ```
