@@ -1,13 +1,14 @@
-Spring Boot Demo
+Spring Boot 3 Security project demo
 
 
 ```bash
-Create a user table in mysql
 
-CREATE TABLE IF NOT EXISTS user (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	username VARCHAR(255) NOT NULL,
-	password VARCHAR(300) NOT NULL
-)
+git clone git@github.com:dylanngo95/dn.saas.cms.git
+
+cd dn.saas.cms
+
+./grandlew bootRun
+
+Go to the link: http://localhost:8080
 
 ```
